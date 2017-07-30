@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TextAnalytics2.RecordPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Display column in textAnalyticsTable" />
+            <Button x:Name="OnButton" HorizontalOptions="Center" Clicked="listRecordAsync" Text="click this" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

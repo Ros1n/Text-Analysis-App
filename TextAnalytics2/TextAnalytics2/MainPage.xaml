@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TextAnalytics2"
+             xmlns:s="clr-namespace:TextAnalytics2.RecordPage"
+              xmlns:y="clr-namespace:TextAnalytics2.TypingPage"            
+             x:Class="TextAnalytics2.MainPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="title" FontSize="Large" HorizontalOptions="Center" Text="Text Analytics" />
+            <Button HorizontalOptions="Center" WidthRequest="120" HeightRequest="40" x:Name="button1" Text="Type new sentence" Clicked="OnButton1" />
+            <Button HorizontalOptions="Center" WidthRequest="120" HeightRequest="40" x:Name="button2"  Text="Old record" Clicked="OnButton2" />
+            <Button HorizontalOptions="Center" WidthRequest="120" HeightRequest="40" x:Name="button3"  Text="Exit" Clicked="OnButton3" />
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
