@@ -16,6 +16,7 @@ using TextAnalytics2.responseModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using TextAnalytics2.documents;
+using static TextAnalytics2.responseModel.responseObj;
 
 namespace TextAnalytics2
 {
@@ -58,28 +59,67 @@ namespace TextAnalytics2
                 using (var httpclient = new StringContent(content, Encoding.UTF8, "application/json"))
                 {
                     client.DefaultRequestHeaders.Add("Accept", "application/json");
+                    //send to url1
                     response = await client.PostAsync(url1, httpclient);
                     if (response.IsSuccessStatusCode)
                     {
                         var responseString = await response.Content.ReadAsStringAsync();
                         var resp = JsonConvert.DeserializeObject<documentsModel>(responseString);
-                        List<details> document = resp.documents;
-                        foreach (var item in document)
+                        foreach (var item in resp.documents)
                         {
-                            tag1.Text = item.id;
-                            tag2.Text = item.score;
+                            sentiment_id.Text = item.id;
+                            score.Text = item.score.ToString();
                         }
                     }
                     else
                     {
                         await DisplayAlert("title", String.Format("exception with statuscode {0}", response.StatusCode), "OK");
                     }
+                    //send to url2
+                    /**
+                    response = await client.PostAsync(url2, httpclient);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseString2 = await response.Content.ReadAsStringAsync();
+                        var resp2 = JsonConvert.DeserializeObject<responseObj>(responseString2);
+                        foreach (var item in resp2.documentDetail)
+                        {
+                            textId.Text = item.textId;
+                            score.Text = item.score.ToString();
+                        }
+                        textId.Text = resp2.textId;
+                        keyPharse.Text = resp2.KeyPharses.ToString();
+                    }
+                    else
+                    {
+                        await DisplayAlert("title", String.Format("exception with statuscode {0}", response.StatusCode), "OK");
+                    }
+                    //send to url3
+                    response = await client.PostAsync(url3, httpclient);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseString3 = await response.Content.ReadAsStringAsync();
+                        var resp3 = JsonConvert.DeserializeObject<responseObj>(responseString3);
+                        List<language> lang = resp3.detectedLanguages;
+                        foreach (var item in lang)
+                        {
+                            languageName.Text = item.name;
+                            languageScore.Text = item.score.ToString();
+                        }
+                    }
+                    else
+                    {
+                        await DisplayAlert("title", String.Format("exception with statuscode {0}", response.StatusCode), "OK");
+                    }
+                    **/
+
                 }
+                    //send response data to easyTable
                     var client2 = new HttpClient();
                     HttpResponseMessage response2;
                     client2.DefaultRequestHeaders.Add("ZUMO-API-VERSION", "2.0.0");
                     string geturl = "https://textanalytics2.azurewebsites.net/tables/textAnalytics2result";
-                    var content2 = JsonConvert.SerializeObject(new { sentiment_id = tag1.Text, score = tag2.Text });
+                    var content2 = JsonConvert.SerializeObject(new { sentiment_id = sentiment_id.Text, score = score.Text });
                     using (var httpclient2 = new StringContent(content2, Encoding.UTF8, "application/json"))
                     {
                         client2.DefaultRequestHeaders.Add("Accept", "application/json");
@@ -93,13 +133,7 @@ namespace TextAnalytics2
                         await DisplayAlert("title", "successfully send data to easytable", "OK");
                         }
                     }
-
-
                 }
-
-
-
-
 
         }
     }
