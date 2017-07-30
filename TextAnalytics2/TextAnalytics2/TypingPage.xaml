@@ -6,14 +6,18 @@
         <StackLayout Padding="20" Spacing="10">
             <Label FontSize="Large" VerticalOptions="Start" Text="Text Analytics" />
             <Label Text="Text Box" />
-            <Entry Text="good day"   x:Name="sentence" />
+            <Entry Text="Enter text here"   x:Name="sentence" />
             <Label Text="ID" />
             <Entry Text="1" Keyboard="Numeric"  x:Name="id" />
             <Label Text="Language" />
             <Entry Text="en"  x:Name="language" />
             <Button Text="Send" HorizontalOptions="Center"  x:Name="sendButton" Clicked="MakeAnalyticsRequest" />
-            <Label Text="[sentiment id]" x:Name="tag1" />
-            <Label Text="[score]" x:Name="tag2" />
+            <Label x:Name="textId" />
+            <Label  x:Name="sentiment_id" />
+            <Label  x:Name="keyPharse" />
+            <Label  x:Name="score" />
+            <Label  x:Name="languageName" />
+            <Label  x:Name="languageScore" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
