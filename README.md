@@ -9,4 +9,4 @@ You need a Visual Studio with Xamarin Forms and Auzre Cloud Service downloaded.
 
 # Deployment
 Please set textAnalytics2.Android as start up project(for Android test purpose).
-
+You can check the usage in your Azure Portal.
