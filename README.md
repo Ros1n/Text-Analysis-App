@@ -1,15 +1,12 @@
-# MSA_module2
-This project is a Microsoft Student Accelerator homework. It's a cloud based, cross platform app using Xamarin with cognitive service(Text Analytics) within Microsoft Azure Services.
-
-# Installing
-Just click "clone" and "download" in the repo page
+# Text Analysis App (MSA Module2)
+A cloud-based Cross Platform App wrote by __Xamarin__ in __.Net__ form. Within a Text Analysis web service from Microsoft, using __Azure__ Cloud.
+The app can be deployed in Android, iOS and WindowsPhone devices, the text analysis service need to connect to Internet.
+This is a housework(Module 2) run by Microsoft Student Accelerator 2017.
 
 # Requirements
-You need to add correct version packages to the project through Nuget package manager. You need a Google Android Simulator in your computer.
+You need to install right-version packages through Nuget package manager to let project work. If you test Android environment in PC, you need a Google Android Simulator in your computer. To test the app in iOS device you need a iOS device and related permission.
 You need a Visual Studio with Xamarin Forms and Auzre Cloud Service downloaded.
 
 # Deployment
-Please set textAnalytics2.Android as start up project.
+Please set textAnalytics2.Android as start up project(for Android test purpose).
 
-# Running the tests
-Wait for upload(unfinished).
